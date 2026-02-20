@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Focus",
+  "version": "2.0.0",
+  "description": "Own your time. Focus is a timer app to help you stay focused and productive.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "purple_clock.png"
+  },
+  "permissions": [
+    "storage",
+    "notifications",
+    "alarms",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}
